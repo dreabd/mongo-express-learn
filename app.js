@@ -5,21 +5,7 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv'
 dotenv.config()
 
-// Model
-const taskSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, "Please Enter a Task Name"]
-    },
-    priority: {
-        type: Number,
-        required: true,
-        default: 0,
-        
-    },
-})
-
-const Task = mongoose.model('Task', taskSchema);
+import Task from "./models/tasks.js";
 
 // Simple Routes
 const getTask = async (req, res) => {
@@ -46,6 +32,7 @@ const addTask = async (req, res) => {
 // New Server Instance
 const app = express()
 
+// Needed Middle Ware 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
@@ -66,6 +53,7 @@ db.once("open", () => { console.log("Connected") })
 app.listen(PORT, () => {
     console.log(`Listening on Port ${PORT}`)
 })
+
 
 // mongoose.
 // connect(process.env.URI)
