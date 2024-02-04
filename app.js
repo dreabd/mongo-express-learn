@@ -5,27 +5,26 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv'
 dotenv.config()
 
-import Task from "./models/tasks.js";
+// import Task from "./models/tasks.js";
 
-// Simple Routes
-const getTask = async (req, res) => {
-    try {
-        const task = await Task.find({});
-        res.status(200).json(task);
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-}
-const addTask = async (req, res) => {
-    console.log(req.body)
-    try {
-        const task = await Task.create(req.body)
-        res.status(200).json(task);
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message})
-    }
-}
+// // Simple Routes
+// const getTask = async (req, res) => {
+//     try {
+//         const task = await Task.find({});
+//         res.status(200).json(task);
+//     } catch (error) {
+//         res.status(500).json({message: error.message})
+//     }
+// }
+// const addTask = async (req, res) => {
+//     try {
+//         const task = await Task.create(req.body)
+//         res.status(200).json(task);
+//     } catch (error) {
+//         console.log(error.message);
+//         res.status(500).json({message: error.message})
+//     }
+// }
 
 
 
@@ -35,10 +34,6 @@ const app = express()
 // Needed Middle Ware 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-
-// Routes
-app.get("/tasks", getTask)
-app.post('/tasks', addTask)
 
 // Defining the Port
 const PORT = 8008;
