@@ -2,20 +2,24 @@ import mongoose from "mongoose";
 
 // Model
 export const taskSchema = mongoose.Schema({
-    name: {
+    title: {
         type: String,
         required: [true, "Please Enter a Task Name"]
     },
-    priority: {
-        type: Number,
-        required: true,
-        default: 0,
-        
+    details: {
+        type: String
     },
-    timesDone:{
+    consistencyLevel: {
         type: Number,
-        required: true,
-        default:0
+        default: 0,
+    },
+    _user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
+    completed:[],
+    deletedAt:{
+        type:Date
     }
 
 })

@@ -22,7 +22,11 @@ const userSchema = mongoose.Schema({
         type:String,
         required:[true,"Please Enter a valid password"]
     },
-    tasks:[taskSchema]
+    tasks:[taskSchema],
+    level:{
+        type:Number,
+        default:0,
+    }
 })
 
 const User = mongoose.model('User', userSchema);
