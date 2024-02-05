@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 // Model
-export const taskSchema = mongoose.Schema({
+export const habitSchema = mongoose.Schema({
     title: {
         type: String,
         required: [true, "Please Enter a Task Name"]
@@ -17,14 +17,14 @@ export const taskSchema = mongoose.Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    completed:[],
-    deletedAt:{
-        type:Date
+    completed: [],
+    archivedAt: {
+        type: Date  
     }
 
 })
 
-const Task = mongoose.model('Task', taskSchema);
+const Habit = mongoose.model('Habit', habitSchema);
 
-export default Task
+export default Habit
 

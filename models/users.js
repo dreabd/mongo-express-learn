@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { taskSchema } from "./tasks";
 
 // Model
 const userSchema = mongoose.Schema({
@@ -22,7 +21,6 @@ const userSchema = mongoose.Schema({
         type:String,
         required:[true,"Please Enter a valid password"]
     },
-    tasks:[taskSchema],
     level:{
         type:Number,
         default:0,
